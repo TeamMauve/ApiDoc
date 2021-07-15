@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apidoc": "^0.28.1"
+    "apidoc": "^0.28.1",
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "gulp-apidoc": "^0.2.8"
   }
 }
