@@ -2,11 +2,15 @@
   "name": "tuningAppApiDoc",
   "version": "1.0.0",
   "description": "",
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url": "https://tuningapp.github.io/ApiDoc/"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["apidoc"],
   "author": "",
   "license": "ISC",
   "dependencies": {

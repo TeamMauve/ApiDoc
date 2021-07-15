@@ -1,4 +1,6 @@
 {
+  "title": "Custom apiDoc browser title",
+  "url": "https://tuningapp.github.io/ApiDoc/",
   "name": "tuningAppApiDoc",
   "version": "1.0.0",
   "description": "",
@@ -7,7 +9,7 @@
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2021-07-15T05:09:11.954Z",
+    "time": "2021-07-15T08:25:52.814Z",
     "url": "https://apidocjs.com",
     "version": "0.28.1"
   }

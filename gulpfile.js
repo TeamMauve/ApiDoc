@@ -1,5 +1,5 @@
-var gulp = require('gulp'),
-  apidoc = require('gulp-apidoc');
+const gulp = require('gulp');
+const apidoc = require('gulp-apidoc');
 
 gulp.task('apidoc', function (done) {
   apidoc(
@@ -8,7 +8,6 @@ gulp.task('apidoc', function (done) {
       dest: 'docs/',
       template: 'apidoc-template/',
       debug: true,
-      includeFilters: ['.*\\.js$'],
     },
     done
   );
