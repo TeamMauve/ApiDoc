@@ -13,7 +13,7 @@ define({
         'No response values.'         : 'Нет значений для ответа.',
         'optional'                    : 'необязательный',
         'Parameter'                   : 'Параметр',
-        'Permissions:'                 : 'Разрешено:',
+        'Permission:'                 : 'Разрешено:',
         'Response'                    : 'Ответ',
         'Send'                        : 'Отправить',
         'Send a Sample Request'       : 'Отправить тестовый запрос',

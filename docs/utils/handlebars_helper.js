@@ -5,6 +5,33 @@ define([
 ], function(locale, Handlebars, DiffMatchPatch) {
 
     /**
+     * Return a text as markdown.
+     * Currently only a little helper to replace apidoc-inline Links (#Group:Name).
+     * Should be replaced with a full markdown lib.
+     * @param string text
+     */
+    Handlebars.registerHelper('markdown', function(text) {
+        if ( ! text ) {
+          return text;
+        }
+        text = text.replace(/((\[(.*?)\])?\(#)((.+?):(.+?))(\))/mg, function(match, p1, p2, p3, p4, p5, p6) {
+          var link = p3 || p5 + '/' + p6;
+          return '<a href="#api-' + p5 + '-' + p6 + '">' + link + '</a>';
+        });
+        return text;
+    });
+
+    /**
+     * set paramater type.
+     */
+    Handlebars.registerHelper("setInputType", function(text) {
+          if (text === "File") {
+            return "file";
+          }
+          return "text";
+    });
+
+    /**
      * start/stop timer for simple performance check.
      */
     var timer;
@@ -116,13 +143,6 @@ define([
     /**
      *
      */
-    Handlebars.registerHelper('toUpperCase', function(value) {
-        return (value && typeof value === 'string') ? value.toUpperCase() : '';
-    });
-
-    /**
-     *
-     */
     Handlebars.registerHelper('splitFill', function(value, splitChar, fillChar) {
         var splits = value.split(splitChar);
         return new Array(splits.length).join(fillChar) + splits[splits.length - 1];
@@ -194,6 +214,46 @@ define([
     /**
      *
      */
+    Handlebars.registerHelper('gen_body', function(context, options) {
+      let strBody = {};
+      context.forEach(element => {
+        element.field = element.field.replace("]", "");
+        switch (element.type.toLowerCase()) {
+          case "string":
+            if (element.field.includes('[')) {
+              if (strBody[element.field.split("[")[0]] === undefined) {
+                strBody[element.field.split("[")[0]] = {};
+              }
+              strBody[element.field.split("[")[0]][element.field.split("[")[1]] = (element.defaultValue || "");
+              break;
+            }
+            strBody[element.field] = (element.defaultValue || "");
+            break;
+          case "number":
+            if (element.field.includes('[')) {
+              if (strBody[element.field.split("[")[0]] === undefined) {
+                strBody[element.field.split("[")[0]] = {};
+              }
+              strBody[element.field.split("[")[0]][element.field.split("[")[1]] = (element.defaultValue || 0);
+              break;
+            }
+            strBody[element.field] = (element.defaultValue || 0);
+            break;
+          case "object":
+            if (strBody[element.field] === undefined) {
+              strBody[element.field] = {};
+            }
+            break;
+          default:
+            strBody[element.field] = null;
+        }
+      });
+      return JSON.stringify(strBody, null, 4);
+    });
+
+    /**
+     *
+     */
     Handlebars.registerHelper('each_compare_field', function(source, compare, options) {
         return _handlebarsEachCompared('field', source, compare, options);
     });
@@ -203,6 +263,19 @@ define([
      */
     Handlebars.registerHelper('each_compare_title', function(source, compare, options) {
         return _handlebarsEachCompared('title', source, compare, options);
+    });
+
+    /**
+     *
+     */
+    Handlebars.registerHelper('reformat', function(source, type){
+        if (type == 'json')
+            try {
+               return JSON.stringify(JSON.parse(source.trim()),null, "    ");
+            } catch(e) {
+
+            }
+        return source
     });
 
     /**
@@ -219,7 +292,7 @@ define([
             if( ! compare)
                 return source;
 
-            var d = diffMatchPatch.diff_main(compare, source);
+            var d = diffMatchPatch.diff_main(stripHtml(compare), stripHtml(source));
             diffMatchPatch.diff_cleanupSemantic(d);
             ds = diffMatchPatch.diff_prettyHtml(d);
             ds = ds.replace(/&para;/gm, '');
@@ -228,13 +301,6 @@ define([
             ds = _handlebarsNewlineToBreak(ds);
 
         return ds;
-    });
-
-    /**
-     * string compare
-     */
-    Handlebars.registerHelper('ifStrEqual', function (arg1, arg2, options) {
-        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
     });
 
     /**
@@ -335,6 +401,15 @@ define([
       }
       return html.join('');
     };
+
+    /**
+     * Fixes html after comparison (#506, #538, #616, #825)
+     */
+    function stripHtml(html){
+      var div = document.createElement("div");
+      div.innerHTML = html;
+      return div.textContent || div.innerText || "";
+    }
 
     // Exports
     return Handlebars;

@@ -13,7 +13,7 @@ define({
         'No response values.'         : 'Sin valores en la respuesta.',
         'optional'                    : 'opcional',
         'Parameter'                   : 'Parámetro',
-        'Permissions:'                 : 'Permisos:',
+        'Permission:'                 : 'Permisos:',
         'Response'                    : 'Respuesta',
         'Send'                        : 'Enviar',
         'Send a Sample Request'       : 'Enviar una petición de ejemplo',
