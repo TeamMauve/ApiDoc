@@ -147,6 +147,108 @@
     }
   },
   {
+    "type": "DELETE",
+    "url": "/auth/withdrawal",
+    "title": "사용자 탈퇴",
+    "name": "사용자_탈퇴",
+    "description": "<p>사용자가 튜닝 서비스를 탈퇴하는 api입니다. <strong>현재 사용자 탈퇴 API는 구조만 잡혀 있고 제대로 실행되지 않습니다. 사용자와 관련된 모든 테이블 구현과 API가 구현되고 개발을 완료할 예정입니다.</strong></p>",
+    "group": "Auth",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "GET-refresh"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>사용자 JWT access token key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Refresh",
+            "description": "<p>사용자 JWT refresh token key.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "curl",
+        "content": "curl -X DELETE /auth/withdrawal\\\n     -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\",
+        "type": "curl"
+      },
+      {
+        "title": "node.js",
+        "content": "const axios = require('axios');\ntry {\n   const response = await axios({\n     method: 'DELETE',\n     url: '/auth/withdrawal',\n     headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n  });\n  console.log('refresh :', response);\n} catch (error) {\n  console.error(error);\n}",
+        "type": "node.js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "delete success",
+          "content": "HTTP/1.1 204 No Content",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../tuningApp/routes/auth.js",
+    "groupTitle": "Auth",
+    "error": {
+      "fields": {
+        "ErrorCode": [
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "401",
+            "description": "<p>access token이 만료되지 않은경우</p>"
+          },
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "404",
+            "description": "<p>디코딩 결과가 없음 OR 사용자 없음 OR 토큰이 헤더에 없는 경우</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "401 access token이 만료되지 않은경우",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"access token이 만료되지 않아 refresh 할 필요가 없습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 디코딩 결과가 없음",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"JWT 토큰에 사용자 정보가 없습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 사용자 없음",
+          "content": "HTTP/1.1 404 Conflict\n{\n  message: \"사용자가 존재하지 않습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 토큰이 헤더에 없는 경우",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"access token 또는 refresh token이 Header에 존재하지 않습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500 Server Error",
+          "content": "HTTP/1.1 500 Conflict\n{\n  message: \"Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "POST",
     "url": "/auth/login",
     "title": "회원가입 및 로그인",
