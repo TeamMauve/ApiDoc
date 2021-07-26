@@ -548,7 +548,7 @@ define({ "api": [
           },
           {
             "group": "Body",
-            "type": "list[Integer]",
+            "type": "List[Integer]",
             "optional": false,
             "field": "hope_instrument",
             "description": "<p>학생이 배우고픈 악기 목록</p>"
