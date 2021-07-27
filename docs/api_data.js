@@ -493,13 +493,20 @@ define({ "api": [
             "optional": false,
             "field": "body[updated_At]",
             "description": "<p>학생 수정 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List",
+            "optional": false,
+            "field": "body[Instruments]",
+            "description": "<p>학생이 배우고픈 악기</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "created success",
-          "content": "HTTP/1.1 201 OK\n{\n    \"statusCode\": 201,\n    \"body\": {\n        \"ID\": \"255c42c0-ede1-11eb-85e6-1d0abc89eafc\",\n        \"name\": \"정지원\",\n        \"age\": 20,\n        \"gender\": \"M\",\n        \"phone_NO\": \"01051849798\",\n        \"has_instrument\": true,\n        \"full_address\": \"경기도 성남시 분당구 삼평동\",\n        \"has_lesson_experience\": true,\n        \"can_read_score\": true,\n        \"createdAt\": \"2021-07-26 16:14:41\",\n        \"updatedAt\": \"2021-07-26 16:14:41\",\n        \"deletedAt\": null,\n        \"parent_ID\": \"32a65940-eb91-11eb-94eb-1bd36ef54096\"\n    }\n}",
+          "content": "HTTP/1.1 201 OK\n{\n    \"statusCode\": 201,\n    \"body\": {\n        \"ID\": \"255c42c0-ede1-11eb-85e6-1d0abc89eafc\",\n        \"name\": \"정지원\",\n        \"age\": 20,\n        \"gender\": \"M\",\n        \"phone_NO\": \"01051849798\",\n        \"has_instrument\": true,\n        \"full_address\": \"경기도 성남시 분당구 삼평동\",\n        \"has_lesson_experience\": true,\n        \"can_read_score\": true,\n        \"createdAt\": \"2021-07-26 16:14:41\",\n        \"updatedAt\": \"2021-07-26 16:14:41\",\n        \"deletedAt\": null,\n        \"parent_ID\": \"32a65940-eb91-11eb-94eb-1bd36ef54096\",\n        \"Instruments\": []\n    }\n}",
           "type": "json"
         }
       ]
@@ -684,22 +691,85 @@ define({ "api": [
             "group": "Response",
             "type": "String",
             "optional": false,
-            "field": "accessToken",
-            "description": "<p>사용자 JWT access token</p>"
+            "field": "body[ID]",
+            "description": "<p>자녀 ID</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Integer",
+            "optional": false,
+            "field": "body[age]",
+            "description": "<p>학생 나이</p>"
           },
           {
             "group": "Response",
             "type": "String",
             "optional": false,
-            "field": "refreshToken",
-            "description": "<p>사용자 JWT refresh token</p>"
+            "field": "body[name]",
+            "description": "<p>학생 이름</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": true,
+            "field": "phone_NO",
+            "description": "<p>학생 핸드폰 번호</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[full_address]",
+            "description": "<p>학생 주소지</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[has_instrument]",
+            "description": "<p>학생 악기 보유 여부</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[has_lesson_experience]",
+            "description": "<p>학생 레슨 경험 여부</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[can_read_score]",
+            "description": "<p>학생 악보 해석 가능 여부</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[created_At]",
+            "description": "<p>학생 추가 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[updated_At]",
+            "description": "<p>학생 수정 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List",
+            "optional": false,
+            "field": "body[Instruments]",
+            "description": "<p>학생이 배우고픈 악기</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "created success",
-          "content": "HTTP/1.1 201 OK\n{\n\"statusCode\": 201,\n\"body\": {\n    created: true\n    }\n}",
+          "content": "HTTP/1.1 201 OK\n{\n\"statusCode\": 201,\n\"body\": {\n     \"ID\": \"2c8e1730-ee86-11eb-b406-45085e755e02\",\n     \"name\": \"홍길동12\",\n     \"age\": 20,\n     \"gender\": \"M\",\n     \"phone_NO\": \"01012345678\",\n     \"has_instrument\": true,\n     \"full_address\": \"경기도 성남시 분당구 삼평동\",\n     \"has_lesson_experience\": true,\n     \"can_read_score\": true,\n     \"createdAt\": \"2021-07-27 11:56:00\",\n     \"updatedAt\": \"2021-07-27 11:56:00\",\n     \"deletedAt\": null,\n     \"parent_ID\": \"b7fd4190-ee7e-11eb-b6c5-ab1668841ae8\",\n     \"Instruments\": []\n }\n}",
           "type": "json"
         }
       ]
@@ -915,13 +985,20 @@ define({ "api": [
             "optional": false,
             "field": "body[updated_At]",
             "description": "<p>학생 수정 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List",
+            "optional": false,
+            "field": "body[Instruments]",
+            "description": "<p>학생이 배우고픈 악기</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "created success",
-          "content": "HTTP/1.1 201 OK\n{\n    \"statusCode\": 201,\n    \"body\": [{\n        \"ID\": \"255c42c0-ede1-11eb-85e6-1d0abc89eafc\",\n        \"name\": \"정지원\",\n        \"age\": 20,\n        \"gender\": \"M\",\n        \"phone_NO\": \"01051849798\",\n        \"has_instrument\": true,\n        \"full_address\": \"경기도 성남시 분당구 삼평동\",\n        \"has_lesson_experience\": true,\n        \"can_read_score\": true,\n        \"createdAt\": \"2021-07-26 16:14:41\",\n        \"updatedAt\": \"2021-07-26 16:14:41\",\n        \"deletedAt\": null,\n        \"parent_ID\": \"32a65940-eb91-11eb-94eb-1bd36ef54096\"\n    }]\n}",
+          "content": "HTTP/1.1 201 OK\n{\n    \"statusCode\": 201,\n    \"body\": [{\n        \"ID\": \"255c42c0-ede1-11eb-85e6-1d0abc89eafc\",\n        \"name\": \"정지원\",\n        \"age\": 20,\n        \"gender\": \"M\",\n        \"phone_NO\": \"01051849798\",\n        \"has_instrument\": true,\n        \"full_address\": \"경기도 성남시 분당구 삼평동\",\n        \"has_lesson_experience\": true,\n        \"can_read_score\": true,\n        \"createdAt\": \"2021-07-26 16:14:41\",\n        \"updatedAt\": \"2021-07-26 16:14:41\",\n        \"deletedAt\": null,\n        \"parent_ID\": \"32a65940-eb91-11eb-94eb-1bd36ef54096\",\n        \"Instruments\": []\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1299,12 +1376,77 @@ define({ "api": [
             "field": "body[created]",
             "description": "<p>자녀 정보 수정 여부</p>"
           }
+        ],
+        "Body": [
+          {
+            "group": "Body",
+            "type": "Integer",
+            "optional": false,
+            "field": "body[age]",
+            "description": "<p>학생 나이</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "body[name]",
+            "description": "<p>학생 이름</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "body[phone_NO]",
+            "description": "<p>학생 핸드폰 번호</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "body[full_address]",
+            "description": "<p>학생 주소지</p>"
+          },
+          {
+            "group": "Body",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[has_instrument]",
+            "description": "<p>학생 악기 보유 여부</p>"
+          },
+          {
+            "group": "Body",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[has_lesson_experience]",
+            "description": "<p>학생 레슨 경험 여부</p>"
+          },
+          {
+            "group": "Body",
+            "type": "Boolean",
+            "optional": false,
+            "field": "body[can_read_score]",
+            "description": "<p>학생 악보 해석 가능 여부</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "body[createdAt]",
+            "description": "<p>생성일</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "body[updatedAt]",
+            "description": "<p>수정일</p>"
+          }
         ]
       },
       "examples": [
         {
           "title": "created success",
-          "content": "HTTP/1.1 201 OK\n{\n\"statusCode\": 201,\n\"body\": {\n    updated: true\n    }\n}",
+          "content": "HTTP/1.1 201 OK\n{\n\"statusCode\": 201,\n\"body\": {\n     \"ID\": \"2c8e1730-ee86-11eb-b406-45085e755e02\",\n        \"name\": \"홍길동12\",\n        \"age\": 20,\n        \"gender\": \"M\",\n        \"phone_NO\": \"01012345678\",\n        \"has_instrument\": true,\n        \"full_address\": \"경기도 성남시 분당구 삼평동\",\n        \"has_lesson_experience\": true,\n        \"can_read_score\": true,\n        \"createdAt\": \"2021-07-27 11:56:00\",\n        \"updatedAt\": \"2021-07-27 11:56:00\",\n        \"deletedAt\": null,\n        \"parent_ID\": \"b7fd4190-ee7e-11eb-b6c5-ab1668841ae8\"\n   }\n}",
           "type": "json"
         }
       ]
@@ -1381,6 +1523,543 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "parent/",
+    "title": "학부모 프로필 등록",
+    "name": "학부모_프로필_등록",
+    "description": "<p>학부모의 프로필을 등록하는 api입니다.</p>",
+    "group": "Parent",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "POST-parent"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>사용자 JWT access token key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Refresh",
+            "description": "<p>사용자 JWT refresh token key.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>닉네임</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "curl",
+        "content": "curl -X POST /parent \\\n      -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\\n     -d '{\"nickname\": \"jiwon11\"}'",
+        "type": "curl"
+      },
+      {
+        "title": "node.js",
+        "content": "const axios = require('axios');\ntry {\n   const response = await axios({\n     method: 'POST',\n     url: '/parent',\n     headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n     data: {\n              \"nickname\" : \"jiwon11\"\n          }\n  });\n  console.log('Parent: ', response);\n} catch (error) {\n  console.error(error);\n}",
+        "type": "node.js"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Response": [
+          {
+            "group": "Response",
+            "type": "Integer",
+            "optional": false,
+            "field": "statusCode",
+            "description": "<p>상태코드</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Object",
+            "optional": false,
+            "field": "body",
+            "description": "<p>Response body</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[nickname]",
+            "description": "<p>학부모 닉네임</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[created_At]",
+            "description": "<p>학부모 생성 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "body[updated_At]",
+            "description": "<p>학부모 수정 일자</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "User",
+            "description": "<p>학부모 사용자 정보</p>"
+          },
+          {
+            "group": "Response",
+            "type": "String",
+            "optional": false,
+            "field": "Children",
+            "description": "<p>학부모 자녀 정보</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "created success",
+          "content": "HTTP/1.1 201 OK\n{\n\"statusCode\": 201,\n\"body\": {\n     \"ID\": \"ce11d7b0-eeb1-11eb-9bbe-d1a0ca8b0150\",\n     \"nickname\": \"jiwon11\",\n     \"createdAt\": \"2021-07-27 17:08:19\",\n     \"updatedAt\": \"2021-07-27 17:08:19\",\n     \"deletedAt\": null,\n     \"user_ID\": \"fd452430-eeaa-11eb-ad37-87ed5c10f54c\",\n     \"User\": {\n         \"ID\": \"fd452430-eeaa-11eb-ad37-87ed5c10f54c\",\n         \"phone_NO\": \"01051849798\",\n         \"role\": \"parent\",\n         \"kakao_token\": \"\",\n         \"isActive\": true,\n         \"profile_img\": \"\",\n         \"createdAt\": \"2021-07-27 16:19:32\",\n         \"updatedAt\": \"2021-07-27 16:38:53\",\n         \"deletedAt\": null\n     },\n     \"Children\": []\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "ErrorCode": [
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Request Body Error response</p>"
+          },
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "409",
+            "description": "<p>Role Error response</p>"
+          },
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "401",
+            "description": "<p>access token이 만료되지 않은경우</p>"
+          },
+          {
+            "group": "ErrorCode",
+            "optional": false,
+            "field": "404",
+            "description": "<p>디코딩 결과가 없음 OR 사용자 없음 OR 토큰이 헤더에 없는 경우</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "400 Error",
+          "content": "HTTP/1.1 400 Conflict\n{\n  message: `${typeof childDTO}는 유효하지 않는 데이터 형태입니다.`\n}",
+          "type": "json"
+        },
+        {
+          "title": "409 Error",
+          "content": "HTTP/1.1 409 Conflict\n{\n  message: \"사용자의 역할로는 자녀를 등록할 수 없습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "401 access token이 만료되지 않은경우",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"access token이 만료되지 않아 refresh 할 필요가 없습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 디코딩 결과가 없음",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"JWT 토큰에 사용자 정보가 없습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 사용자 없음",
+          "content": "HTTP/1.1 404 Conflict\n{\n  message: \"사용자가 존재하지 않습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "404 토큰이 헤더에 없는 경우",
+          "content": "HTTP/1.1 401 Conflict\n{\n  message: \"access token 또는 refresh token이 Header에 존재하지 않습니다.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500 Server Error",
+          "content": "HTTP/1.1 500 Conflict\n{\n  message: \"Server Error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../tuningApp/routes/parent.js",
+    "groupTitle": "Parent"
+  },
+  {
+    "type": "POST",
+    "url": "teacher/profile",
+    "title": "선생님 프로필 등록",
+    "name": "선생님_프로필_등록",
+    "description": "<p>선생님의 프로필을 등록하는 api입니다.</p>",
+    "group": "Teacher",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "POST-TeacherProfile"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>사용자 JWT access token key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Refresh",
+            "description": "<p>사용자 JWT refresh token key.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "FormData": [
+          {
+            "group": "FormData",
+            "type": "File",
+            "optional": false,
+            "field": "upperBody",
+            "description": "<p>상반신 사진</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "File",
+            "optional": false,
+            "field": "wholeBody",
+            "description": "<p>전신 사진</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "File",
+            "optional": false,
+            "field": "performance",
+            "description": "<p>연주 사진</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "File",
+            "optional": false,
+            "field": "lesson",
+            "description": "<p>레슨 중 사진</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "career",
+            "description": "<p>경력</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "career[category]",
+            "description": "<p>경력 종류</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "career[description]",
+            "description": "<p>경력 설명</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "career[start_date]",
+            "description": "<p>경력 시작일</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "career[end_date]",
+            "description": "<p>경력 종료일</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "List[Integer",
+            "allowedValues": [
+              "District.id]"
+            ],
+            "optional": false,
+            "field": "hopeDistrict",
+            "description": "<p>레슨 희망 지역</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "Object",
+            "optional": false,
+            "field": "performanceVideo",
+            "description": "<p>연주 영상 링크</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "Object",
+            "optional": false,
+            "field": "profile",
+            "description": "<p>기본 프로필 정보</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "profile[name]",
+            "description": "<p>이름</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "profile[birthday]",
+            "description": "<p>생일</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "Integer",
+            "optional": false,
+            "field": "profile[hope_sales_month]",
+            "description": "<p>희망 월 매출</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "profile[introduction]",
+            "description": "<p>소개글</p>"
+          },
+          {
+            "group": "FormData",
+            "type": "String",
+            "optional": false,
+            "field": "profile[gender]",
+            "description": "<p>성별</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "curl",
+        "content": "curl -X POST /teacher/profile \\\n      -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\\n     -d 'career:[{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"},{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"},{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"}],hopeDistrict:[167,164,165,166], performanceVideo:{\"url\": \"testUrl\"}, profile:{\"name\" : \"정지원\", \"birthday\": \"1998.01.09\", \"hope_sales_month\": 1000, \"introduction\": \"test\", \"gender\": \"M\"}'",
+        "type": "curl"
+      },
+      {
+        "title": "node.js",
+        "content": "  const axios = require('axios');\n  try {\n     let form = new FormData();\n     form.append('upperBody',ImageObj);\n     form.append('wholeBody',ImageObj);\n     form.append('performance',ImageObj);\n     form.append('lesson',ImageObj);\n     form.append('career', [{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"},\n{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"},{\"category\":\"test\",\"description\":\"test\",\"start_date\":\"2021.10\",\"end_date\":\"2021.11\"}]);\n     form.append('hopeDistrict',[167,164,165,166]);\n     form.append('performanceVideo', {\"url\": \"testUrl\"});\n     form.append('profile',  {\"name\" : \"정지원\", \"birthday\": \"1998.01.09\", \"hope_sales_month\": 1000, \"introduction\": \"test\", \"gender\": \"M\"});\n     const response = await axios({\n       method: 'POST',\n       url: '/teacher/profile',\n       data: form,\n       headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n    });\n    console.log('Parent: ', response);\n  } catch (error) {\n    console.error(error);\n  }",
+        "type": "node.js"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Response": [
+          {
+            "group": "Response",
+            "type": "Integer",
+            "optional": false,
+            "field": "statusCode",
+            "description": "<p>상태코드</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Object",
+            "optional": false,
+            "field": "body",
+            "description": "<p>Response body</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Boolean",
+            "optional": false,
+            "field": "certificated_edu",
+            "description": "<p>학력 인증</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "CoverImgs",
+            "description": "<p>프로필 이미지 목록</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "Careers",
+            "description": "<p>경력 목록</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "Districts",
+            "description": "<p>희망 레슨 지역 목록</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "created success",
+          "content": "HTTP/1.1 201 OK\n{\n   \"statusCode\": 201,\n   \"body\": {\n       \"teacher\": {\n           \"ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\",\n           \"name\": \"정지원\",\n           \"address\": null,\n           \"gender\": \"M\",\n           \"birthday\": \"1998-01-09\",\n           \"introduction\": \"test\",\n           \"certificated_edu\": false,\n           \"can_rental\": false,\n           \"hope_sales_month\": 1000,\n           \"createdAt\": \"2021-07-27 16:24:15\",\n           \"user_ID\": \"fd452430-eeaa-11eb-ad37-87ed5c10f54c\",\n           \"phone_NO\": \"01051849798\",\n           \"role\": \"parent\",\n           \"kakao_token\": \"\",\n           \"isActive\": true,\n           \"profile_img\": \"\"\n       },\n       \"coverImgs\": [\n           {\n               \"ID\": \"a5b457d0-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"upperBody\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/162737065499813.jpg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 48591,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee0-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"wholeBody\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/1627370654998IMG_1593.JPG\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 84867,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee1-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"performance\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/ *162737065500220526B34-A7BB-4D9B-AAA0-95135A5F84F0.jpeg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 96771,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee2-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"lesson\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/ *1627370655005766B6D9E-98AE-4B5F-B54C-E53614698FC3.jpeg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 258902,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b54230-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"performanceVideo\",\n               \"mime_type\": \"video/mp4\",\n               \"url\": \"testUrl\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 0,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           }\n       ],\n       \"careers\": [\n           {\n               \"ID\": 7,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": 8,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": 9,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           }\n       ],\n       \"hope_districts\": [\n           {\n               \"ID\": 164,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"궁정동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 164,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 165,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"효자동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 165,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 166,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"창성동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 166,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 167,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"통인동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 167,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           }\n       ]\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../tuningApp/routes/teacher.js",
+    "groupTitle": "Teacher"
+  },
+  {
+    "type": "get",
+    "url": "teacher/profile?id={id}",
+    "title": "선생님 프로필 조회",
+    "name": "선생님_프로필_조회",
+    "description": "<p>선생님의 프로필을 조회하는 api입니다.</p>",
+    "group": "Teacher",
+    "version": "1.0.0",
+    "permission": [
+      {
+        "name": "GET-TeacherProfile"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>사용자 JWT access token key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Refresh",
+            "description": "<p>사용자 JWT refresh token key.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Query": [
+          {
+            "group": "Query",
+            "type": "String",
+            "optional": true,
+            "field": "id",
+            "description": "<p>선생님 ID</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "curl",
+        "content": "curl -X GET /teacher/profile?id=a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e \\\n      -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\",
+        "type": "curl"
+      },
+      {
+        "title": "node.js",
+        "content": "const axios = require('axios');\ntry {\n   const response = await axios({\n     method: 'GET',\n     url: '/teacher/profile?id=a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e',\n     data: form,\n     headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n  });\n  console.log('Parent: ', response);\n} catch (error) {\n  console.error(error);\n}",
+        "type": "node.js"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Response": [
+          {
+            "group": "Response",
+            "type": "Integer",
+            "optional": false,
+            "field": "statusCode",
+            "description": "<p>상태코드</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Object",
+            "optional": false,
+            "field": "body",
+            "description": "<p>Response body</p>"
+          },
+          {
+            "group": "Response",
+            "type": "Boolean",
+            "optional": false,
+            "field": "certificated_edu",
+            "description": "<p>학력 인증</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "CoverImgs",
+            "description": "<p>프로필 이미지 목록</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "Careers",
+            "description": "<p>경력 목록</p>"
+          },
+          {
+            "group": "Response",
+            "type": "List[Object]",
+            "optional": false,
+            "field": "Districts",
+            "description": "<p>희망 레슨 지역 목록</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "created success",
+          "content": "HTTP/1.1 201 OK\n{\n   \"statusCode\": 201,\n   \"body\": {\n       \"teacher\": {\n           \"ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\",\n           \"name\": \"정지원\",\n           \"address\": null,\n           \"gender\": \"M\",\n           \"birthday\": \"1998-01-09\",\n           \"introduction\": \"test\",\n           \"certificated_edu\": false,\n           \"can_rental\": false,\n           \"hope_sales_month\": 1000,\n           \"createdAt\": \"2021-07-27 16:24:15\",\n           \"user_ID\": \"fd452430-eeaa-11eb-ad37-87ed5c10f54c\",\n           \"phone_NO\": \"01051849798\",\n           \"role\": \"parent\",\n           \"kakao_token\": \"\",\n           \"isActive\": true,\n           \"profile_img\": \"\"\n       },\n       \"coverImgs\": [\n           {\n               \"ID\": \"a5b457d0-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"upperBody\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/162737065499813.jpg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 48591,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee0-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"wholeBody\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/1627370654998IMG_1593.JPG\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 84867,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee1-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"performance\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/ *162737065500220526B34-A7BB-4D9B-AAA0-95135A5F84F0.jpeg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 96771,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b47ee2-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"lesson\",\n               \"mime_type\": \"image/jpeg\",\n               \"url\": \"https://tuninig-teacher-profile.s3.ap-northeast-2.amazonaws.com/original/ *1627370655005766B6D9E-98AE-4B5F-B54C-E53614698FC3.jpeg\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 258902,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": \"a5b54230-eeab-11eb-a925-7ba9e6bb612e\",\n               \"name\": \"performanceVideo\",\n               \"mime_type\": \"video/mp4\",\n               \"url\": \"testUrl\",\n               \"width\": 0,\n               \"height\": 0,\n               \"size\": 0,\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           }\n       ],\n       \"careers\": [\n           {\n               \"ID\": 7,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": 8,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           },\n           {\n               \"ID\": 9,\n               \"category\": \"test\",\n               \"description\": \"test\",\n               \"start_date\": \"2021-10-01\",\n               \"end_date\": \"2021-11-01\",\n               \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n           }\n       ],\n       \"hope_districts\": [\n           {\n               \"ID\": 164,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"궁정동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 164,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 165,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"효자동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 165,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 166,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"창성동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 166,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           },\n           {\n               \"ID\": 167,\n               \"si_do\": \"서울특별시\",\n               \"si_gun_gu\": \"종로구\",\n               \"eup_myeon_dong\": \"통인동\",\n               \"HOPE_LESSON_DISTRICT\": {\n                   \"createdAt\": \"2021-07-27 16:24:15\",\n                   \"updatedAt\": \"2021-07-27 16:24:15\",\n                   \"district_ID\": 167,\n                   \"teacher_ID\": \"a5b3e2a0-eeab-11eb-a925-7ba9e6bb612e\"\n               }\n           }\n       ]\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "../tuningApp/routes/teacher.js",
+    "groupTitle": "Teacher"
+  },
+  {
+    "type": "POST",
     "url": "/user/role",
     "title": "사용자 역할 설정",
     "name": "사용자_및_선생님_역할_설정",
@@ -1433,69 +2112,18 @@ define({ "api": [
             "field": "data",
             "description": "<p>사용자가 설정한 역할별 데이터</p>"
           }
-        ],
-        "parent": [
-          {
-            "group": "parent",
-            "type": "String",
-            "optional": false,
-            "field": "data[nickname]",
-            "description": "<p>학부모 닉네임</p>"
-          }
-        ],
-        "teacher": [
-          {
-            "group": "teacher",
-            "type": "String",
-            "optional": false,
-            "field": "data[name]",
-            "description": "<p>선생님 실명</p>"
-          },
-          {
-            "group": "teacher",
-            "type": "String",
-            "allowedValues": [
-              "\"M\"",
-              "\"F\"",
-              "\"N\""
-            ],
-            "optional": true,
-            "field": "data[gender]",
-            "description": "<p>선생님 실명</p>"
-          },
-          {
-            "group": "teacher",
-            "type": "String",
-            "optional": true,
-            "field": "data[birthday]",
-            "description": "<p>선생님 생년월일</p>"
-          },
-          {
-            "group": "teacher",
-            "type": "String",
-            "optional": true,
-            "field": "data[introduction]",
-            "description": "<p>선생님 소개글</p>"
-          },
-          {
-            "group": "teacher",
-            "type": "Boolean",
-            "optional": true,
-            "field": "data[can_rental]",
-            "description": "<p>선생님 악기 대여 가능 여부</p>"
-          }
         ]
       }
     },
     "examples": [
       {
         "title": "curl",
-        "content": "curl -X POST /user/role \\\n     -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\\n     -d '{\"role\":\"parent\", \"data\" : {\"nickname\" : \"jiwon11\"}}'",
+        "content": "curl -X POST /user/role \\\n     -H \"Authorization: Bearer thisisjwtaccesstoken\"\\\n     -H \"Refresh: Bearer thisisjwtrefreshtoken\"\\\n     -d '{\"role\":\"parent\"}'",
         "type": "curl"
       },
       {
         "title": "node.js",
-        "content": "const axios = require('axios');\ntry {\n   const response = await axios({\n     method: 'POST',\n     url: '/user/role',\n     headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n     data: {\n       'role': 'parent',\n       'data': {\n           \"nickname\" : \"jiwon11\"\n         }\n     }\n  });\n  console.log('User role: ', response);\n} catch (error) {\n  console.error(error);\n}",
+        "content": "const axios = require('axios');\ntry {\n   const response = await axios({\n     method: 'POST',\n     url: '/user/role',\n     headers: { 'Authorization': 'Bearer thisisjwtaccesstoken', \"Refresh\" : \"thisisjwtrefreshtoken\" }\n     data: {\n       'role': 'parent'\n     }\n  });\n  console.log('User role: ', response);\n} catch (error) {\n  console.error(error);\n}",
         "type": "node.js"
       }
     ],
